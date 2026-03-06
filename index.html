@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Alquiler Vacacional</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Botón de Tema -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+    <span class="theme-icon">🌙</span>
+  </button>
+
+  <!-- Ficha de la Plataforma -->
+  <div class="card" id="platformCard">
+
+    <!-- Encabezado -->
+    <div class="card-header">
+
+      <div class="avatar">
+        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" 
+        alt="Plataforma Vacacional" id="platformImg">
+      </div>
+
+      <div class="header-info">
+        <h1 id="platformName">Cargando...</h1>
+        <p class="title" id="platformType">Cargando...</p>
+        <p class="location" id="platformLocation">📍 Cargando...</p>
+      </div>
+
+    </div>
+
+    <!-- Descripción -->
+    <div class="card-section">
+      <h2>Descripción</h2>
+      <p id="platformDescription" class="bio">Cargando...</p>
+    </div>
+
+    <!-- Información General -->
+    <div class="card-section">
+      <h2>Información General</h2>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+          <span class="icon">🆔</span>
+          <span id="platformCode">Cargando...</span>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">🏠</span>
+          <span id="platformProperties">Cargando...</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Servicios -->
+    <div class="card-section">
+      <h2>Servicios de la Plataforma</h2>
+
+      <div id="servicesList" class="skills-list">
+        Cargando...
+      </div>
+
+      <button id="toggleServices" class="btn btn-secondary">
+        Mostrar más
+      </button>
+    </div>
+
+    <!-- Conexiones del Ecosistema -->
+    <div class="card-section">
+      <h2>Usuarios de la Plataforma</h2>
+
+      <div id="userTypes" class="social-links">
+        Cargando...
+      </div>
+
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="card-section">
+
+      <h2>Estadísticas</h2>
+
+      <div id="stats" class="stats-grid">
+        Cargando...
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Plataforma de Alquiler Vacacional</p>
+    <p class="small">Proyecto Semana 01 - Bootcamp JavaScript</p>
+  </footer>
+
+</div>
+
+<!-- Notificación -->
+<div id="toast" class="toast">
+  <span id="toastMessage"></span>
+</div>
+
+<script src="starter/script.js"></script>
+
+</body>
+</html>
