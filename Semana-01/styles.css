@@ -1,460 +1,137 @@
-/* ============================================
-   Tema: Plataforma de Alquiler Vacacional
-   ============================================ */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Variables */
 :root {
-
-  --bg-primary: #eef6ff;
-  --bg-secondary: #ffffff;
-
-  --text-primary: #1e3a5f;
-  --text-secondary: #4a6fa5;
-
-  --accent: #3f86b2;
-  --accent-hover: #0d8ddb;
-
-  --border: #d6e4f0;
-  --shadow: rgba(0,0,0,0.08);
-
-  --success: #cf41dc;
-
-  --transition: 0.3s ease;
+  --bg: #f5f7fa;
+  --text: #333;
+  --card: #ffffff;
+  --primary: #ff5a5f;
+  --secondary: #00a699;
 }
 
-[data-theme="dark"] {
-
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5f5;
-
-  --accent: #38bdf8;
-  --accent-hover: #0ea5e9;
-
-  --border: #334155;
-  --shadow: rgba(0,0,0,0.4);
+/* Modo oscuro */
+body.dark {
+  --bg: #1e1e1e;
+  --text: #f5f5f5;
+  --card: #2c2c2c;
 }
 
-/* ============================================
-   Reset
-   ============================================ */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
 }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto;
-background:linear-gradient(180deg,#eef6ff,#ffffff);
-color:var(--text-primary);
-line-height:1.6;
-transition:background var(--transition),color var(--transition);
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
 }
 
-/* ============================================
-   Layout
-   ============================================ */
-
-.container{
-max-width:800px;
-margin:0 auto;
-padding:2rem 1rem;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-/* ============================================
-   Theme Toggle
-   ============================================ */
-
-.theme-toggle{
-position:fixed;
-top:1rem;
-right:1rem;
-background:var(--bg-secondary);
-border:2px solid var(--border);
-border-radius:50%;
-width:50px;
-height:50px;
-cursor:pointer;
-font-size:1.5rem;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 2px 8px var(--shadow);
-transition:all var(--transition);
-z-index:1000;
+/* Contenedor */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-.theme-toggle:hover{
-transform:scale(1.1);
-box-shadow:0 4px 12px var(--shadow);
+/* Card */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.theme-icon{
-transition:transform var(--transition);
+/* Títulos */
+.card h2 {
+  margin-bottom: 10px;
 }
 
-.theme-toggle:hover .theme-icon{
-transform:rotate(20deg);
+.card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
-/* ============================================
-   Card
-   ============================================ */
-
-.card{
-background:var(--bg-secondary);
-border-radius:16px;
-box-shadow:0 4px 20px var(--shadow);
-overflow:hidden;
-width:100%;
-max-width:600px;
-transition:all var(--transition);
+/* Lista */
+ul {
+  list-style: none;
+  margin-bottom: 10px;
 }
 
-.card:hover{
-box-shadow:0 8px 30px var(--shadow);
+ul li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-/* ============================================
-   Header
-   ============================================ */
-
-.card-header{
-background:linear-gradient(135deg,#050f14 0%,#6b26a2 50%,#101f55 100%);
-padding:2rem;
-text-align:center;
-color:white;
+/* Botones */
+button {
+  margin-top: 10px;
+  margin-right: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--secondary);
+  color: white;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.avatar{
-width:120px;
-height:120px;
-margin:0 auto 1rem;
-border-radius:50%;
-overflow:hidden;
-border:4px solid rgba(255,255,255,0.3);
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
+button:hover {
+  transform: scale(1.05);
+  background: #008f82;
 }
 
-.avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  opacity: 0.9;
+  animation: fadeInOut 2s ease;
 }
 
-.header-info h1{
-font-size:2rem;
-margin-bottom:0.5rem;
-font-weight:700;
+/* Animación */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
 }
 
-.title{
-font-size:1.1rem;
-opacity:0.9;
-margin-bottom:0.5rem;
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
 }
 
-.location{
-font-size:0.95rem;
-opacity:0.9;
-}
-
-/* ============================================
-   Sections
-   ============================================ */
-
-.card-section{
-padding:1.5rem 2rem;
-border-bottom:1px solid var(--border);
-}
-
-.card-section:last-child{
-border-bottom:none;
-}
-
-.card-section h2{
-font-size:1.3rem;
-margin-bottom:1rem;
-color:var(--text-primary);
-}
-
-.bio{
-color:var(--text-secondary);
-line-height:1.7;
-}
-
-/* ============================================
-   Info
-   ============================================ */
-
-.contact-info{
-display:flex;
-flex-direction:column;
-gap: 10px;
-}
-
-.contact-item{
-display:flex;
-align-items:center;
-gap:0.75rem;
-color:var(--text-secondary);
-}
-
-.icon{
-font-size:1.2rem;
-}
-
-/* ============================================
-   Servicios
-   ============================================ */
-
-.skills-list{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:1rem;
-margin-bottom:1rem;
-}
-
-.skill-item{
-background:var(--bg-primary);
-padding:1rem;
-border-radius:8px;
-border:1px solid var(--border);
-transition:all var(--transition);
-}
-
-.skill-item:hover{
-transform:translateY(-2px);
-box-shadow:0 4px 12px var(--shadow);
-border-color:var(--accent);
-}
-
-.skill-name{
-font-weight:600;
-margin-bottom:0.5rem;
-color:var(--text-primary);
-}
-
-.skill-level{
-display:flex;
-align-items:center;
-gap:0.5rem;
-font-size:0.9rem;
-color:var(--text-secondary);
-}
-
-.skill-bar{
-flex:1;
-height:6px;
-background:var(--border);
-border-radius:3px;
-overflow:hidden;
-}
-
-.skill-bar-fill{
-height:100%;
-background:linear-gradient(90deg,#1da1f2,#2bb673);
-transition:width 0.5s ease;
-}
-
-.skill-item.hidden{
-display:none;
-}
-
-/* ============================================
-   Usuarios
-   ============================================ */
-
-.social-links{
-display:flex;
-gap:1rem;
-flex-wrap:wrap;
-}
-
-.social-link{
-display:inline-flex;
-align-items:center;
-gap:0.5rem;
-padding:0.75rem 1.25rem;
-background:var(--bg-primary);
-border:1px solid var(--border);
-border-radius:8px;
-text-decoration:none;
-color:var(--text-primary);
-transition:all var(--transition);
-font-weight:500;
-}
-
-.social-link:hover{
-background:var(--accent);
-color:white;
-transform:translateY(-2px);
-box-shadow:0 4px 12px var(--shadow);
-}
-
-/* ============================================
-   Estadísticas
-   ============================================ */
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:1rem;
-}
-
-.stat-item{
-background:var(--bg-primary);
-padding:1.5rem;
-border-radius:8px;
-text-align:center;
-border:1px solid var(--border);
-}
-
-.stat-value{
-font-size:2rem;
-font-weight:700;
-color:#a839b9;
-display:block;
-margin-bottom:0.5rem;
-}
-
-.stat-label{
-font-size:0.9rem;
-color:var(--text-secondary);
-}
-
-/* ============================================
-   Botones
-   ============================================ */
-
-.btn{
-padding:0.75rem 1.5rem;
-background:var(--accent);
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:1rem;
-font-weight:500;
-transition:all var(--transition);
-width:100%;
-}
-
-.btn:hover{
-background:var(--accent-hover);
-transform:translateY(-2px);
-box-shadow:0 4px 12px var(--shadow);
-}
-
-.btn-small{
-padding:0.5rem 1rem;
-font-size:0.85rem;
-width:auto;
-}
-
-.btn-copy{
-padding:0.3rem 0.7rem;
-font-size:0.8rem;
-background:#ad19ce;
-color:rgb(254 251 255);
-border:none;
-border-radius:6px;
-cursor:pointer;
-transition:var(--transition);
-}
-
-.btn-copy:hover{
-background:#e37de6;
-}
-
-.btn-secondary{
-background:var(--bg-primary);
-color:var(--text-primary);
-border:1px solid var(--border);
-}
-
-.btn-secondary:hover{
-background:var(--border);
-}
-
-/* ============================================
-   Toast
-   ============================================ */
-
-.toast{
-position:fixed;
-bottom:2rem;
-right:2rem;
-background:var(--success);
-color:white;
-padding:1rem 1.5rem;
-border-radius:8px;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
-transform:translateY(200%);
-transition:transform var(--transition);
-z-index:2000;
-}
-
-.toast.show{
-transform:translateY(0);
-}
-
-/* ============================================
-   Footer
-   ============================================ */
-
-.footer{
-margin-top:2rem;
-text-align:center;
-color:var(--text-secondary);
-font-size:0.9rem;
-}
-
-.small{
-font-size:0.8rem;
-margin-top:0.5rem;
-}
-
-/* ============================================
-   Responsive
-   ============================================ */
-
-@media (max-width:640px){
-
-.container{
-padding:1rem;
-}
-
-.card-header{
-padding:1.5rem;
-}
-
-.header-info h1{
-font-size:1.5rem;
-}
-
-.card-section{
-padding:1rem 1.5rem;
-}
-
-.skills-list{
-grid-template-columns:1fr;
-}
-
-.stats-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.theme-toggle{
-top:0.5rem;
-right:0.5rem;
-}
-
-}
