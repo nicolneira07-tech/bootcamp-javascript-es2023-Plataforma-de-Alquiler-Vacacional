@@ -1,110 +1,160 @@
-// Datos del dominio
-const platformData = {
-name: "Plataforma de Alquiler Vacacional",
-code: "VAC-001",
-description: "Sistema digital que conecta anfitriones con turistas para alquiler de alojamientos temporales.",
-location: {
-city: "Bogotá",
-country: "Colombia"
-},
+// ===============================
+// 🏡 DATOS DEL DOMINIO
+// ===============================
 
-services: [
-{ name: "Verificación de licencias", level: 90 },
-{ name: "Gestión de reservas", level: 95 },
-{ name: "Pagos seguros", level: 92 },
-{ name: "Soporte a usuarios", level: 85 }
-],
-
-stats: {
-users: 12000,
-properties: 850,
-rating: 4.7
-}
+const rentalProperty = {
+  name: 'Apartamento Vista al Mar',
+  description: 'Hermoso apartamento con vista al mar, ideal para vacaciones familiares',
+  code: 'PROP-001',
+  location: {
+    city: 'Cartagena',
+    country: 'Colombia'
+  },
+  features: [
+    { name: 'WiFi', level: 90 },
+    { name: 'Piscina', level: 85 },
+    { name: 'Aire Acondicionado', level: 95 },
+    { name: 'Cocina Equipada', level: 80 }
+  ],
+  stats: {
+    bookings: 120,
+    rating: 4.7,
+    reviews: 85
+  }
 };
 
+// ===============================
+// 📦 DESTRUCTURING
+// ===============================
 
-// Destructuring
 const {
-name,
-description,
-code,
-location:{city,country},
-services,
-stats
-} = platformData;
+  name,
+  description,
+  code,
+  location: { city, country },
+  features,
+  stats
+} = rentalProperty;
 
+// ===============================
+// 📊 CÁLCULO DE ESTADÍSTICAS
+// ===============================
 
-// Render información
-document.getElementById("title").textContent = name;
-document.getElementById("description").textContent = description;
+// Promedio de nivel de servicios
+const averageLevel =
+  features.reduce((acc, feature) => acc + feature.level, 0) /
+  features.length;
 
-document.getElementById("info").innerHTML = `
-Código: ${code} <br>
-Ubicación: ${city}, ${country}
-`;
+// Servicios premium (>85)
+const premiumFeatures = features.filter(
+  (feature) => feature.level > 85
+);
 
+// ===============================
+// 🎨 RENDERIZAR HTML
+// ===============================
 
-// Render servicios
-const servicesList = document.getElementById("services");
+const app = document.getElementById('app');
 
-services.forEach(service=>{
-const li = document.createElement("li");
-li.textContent = `${service.name} - Nivel ${service.level}%`;
-servicesList.appendChild(li);
-});
+const renderProperty = () => {
+  const featuresHTML = features
+    .map(
+      (feature) => `
+      <li>
+        ${feature.name} - Nivel: ${feature.level}%
+      </li>
+    `
+    )
+    .join('');
 
+  const html = `
+    <div class="card">
+      <h2>${name}</h2>
+      <p>${description}</p>
+      <p><strong>Código:</strong> ${code}</p>
+      <p><strong>Ubicación:</strong> ${city}, ${country}</p>
 
-// Estadísticas con reduce
-const avgService = services.reduce((acc,s)=> acc + s.level,0)/services.length;
+      <h3>Servicios</h3>
+      <ul id="featuresList">${featuresHTML}</ul>
 
-document.getElementById("stats").innerHTML = `
-Usuarios: ${stats.users}<br>
-Propiedades: ${stats.properties}<br>
-Rating: ${stats.rating}<br>
-Promedio de servicios: ${avgService.toFixed(1)}%
-`;
+      <h3>Estadísticas</h3>
+      <p>Reservas: ${stats.bookings}</p>
+      <p>Rating: ${stats.rating}</p>
+      <p>Reseñas: ${stats.reviews}</p>
+      <p>Promedio servicios: ${averageLevel.toFixed(1)}%</p>
+      <p>Servicios premium: ${premiumFeatures.length}</p>
 
+      <button id="copyBtn">📋 Copiar Información</button>
+      <button id="toggleTheme">🌙 Cambiar Tema</button>
+      <button id="toggleFeatures">👀 Mostrar/Ocultar Servicios</button>
+    </div>
+  `;
 
-// Toggle tema
-const themeBtn = document.getElementById("themeBtn");
+  app.innerHTML = html;
+};
 
-themeBtn.addEventListener("click",()=>{
-document.body.classList.toggle("dark");
-showToast("Tema cambiado");
-});
+// ===============================
+// 🔔 TOAST
+// ===============================
 
+const showToast = (message) => {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
 
-// Copiar información
-document.getElementById("copyBtn").addEventListener("click",()=>{
+  document.body.appendChild(toast);
 
-const text = `
+  setTimeout(() => {
+    toast.remove();
+  }, 2000);
+};
+
+// ===============================
+// 🌗 ESTADO DEL TEMA
+// ===============================
+
+let isDark = false;
+
+// ===============================
+// ⚡ EVENT LISTENERS (ARROW)
+// ===============================
+
+document.addEventListener('click', (e) => {
+  // 📋 Copiar información
+  if (e.target.id === 'copyBtn') {
+    const text = `
 ${name}
 ${description}
 Ubicación: ${city}, ${country}
-`;
+Rating: ${stats.rating}
+    `;
 
-navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text);
+    showToast('Información copiada ✅');
+  }
 
-showToast("Información copiada");
+  // 🌙 Cambiar tema
+  if (e.target.id === 'toggleTheme') {
+    isDark = !isDark;
+
+    document.body.classList.toggle('dark');
+    showToast(isDark ? 'Modo oscuro 🌙' : 'Modo claro ☀️');
+  }
+
+  // 👀 Mostrar / ocultar servicios
+  if (e.target.id === 'toggleFeatures') {
+    const list = document.getElementById('featuresList');
+
+    if (list.style.display === 'none') {
+      list.style.display = 'block';
+    } else {
+      list.style.display = 'none';
+    }
+  }
 });
 
+// ===============================
+// 🚀 INICIALIZAR APP
+// ===============================
 
-// Mostrar / ocultar servicios
-document.getElementById("toggleBtn").addEventListener("click",()=>{
-servicesList.classList.toggle("hidden");
-});
-
-
-// Toast
-const showToast = (message)=>{
-
-const toast = document.getElementById("toast");
-
-toast.textContent = message;
-toast.style.display = "block";
-
-setTimeout(()=>{
-toast.style.display = "none";
-},2000);
-
-};
+renderProperty();
