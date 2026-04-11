@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-
-=======
-# 🏡 Plataforma de Alquiler Vacacional - Semana 04
+# 🏡 Plataforma de Alquiler Vacacional 
 
 ## 📋 Información General
 
