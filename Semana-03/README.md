@@ -1,4 +1,4 @@
-# 🏡 Plataforma de Alquiler Vacacional - Semana 03
+# 🏡 Plataforma de Alquiler Vacacional 
 
 ## 📋 Información
 - **Nombre**: Nicol Dayana Neira Lopez
