@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url("Media/fondo.jpg") no-repeat center/cover;
+  color: white;
+}
+
+/* overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+form, .filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+#list li {
+  list-style: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+#list li:hover {
+  transform: scale(1.03);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* DARK MODE */
+.dark {
+  background: #111;
+}
+
+.dark body::before {
+  background: rgba(0,0,0,0.8);
+}

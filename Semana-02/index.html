@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🏡 Alquiler Vacacional PRO</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>🏡 Alquiler Vacacional</h1>
+  <button id="themeBtn">☀️</button>
+</header>
+
+<!-- 📊 STATS -->
+<section id="stats"></section>
+
+<!-- 📝 FORM -->
+<section class="form-section">
+  <form id="form">
+    <input id="name" placeholder="Nombre" required />
+    <input id="location" placeholder="Ubicación" required />
+    <input id="price" type="number" placeholder="Precio" required />
+
+    <button type="submit">Agregar</button>
+  </form>
+</section>
+
+<!-- 🔍 FILTROS -->
+<section class="filters">
+  <input id="search" placeholder="Buscar..." />
+  <select id="filter">
+    <option value="all">Todos</option>
+    <option value="active">Disponibles</option>
+    <option value="inactive">No disponibles</option>
+  </select>
+</section>
+
+<!-- 📋 LISTA -->
+<main id="list" class="grid"></main>
+
+<!-- ✏️ MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Editar</h2>
+    <input id="editName" />
+    <input id="editLocation" />
+    <input id="editPrice" type="number" />
+
+    <button onclick="saveEdit()">Guardar</button>
+    <button onclick="closeModal()">Cancelar</button>
+  </div>
+</div>
+
+<footer>© 2026 Plataforma</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

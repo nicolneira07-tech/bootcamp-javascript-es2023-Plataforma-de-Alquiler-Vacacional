@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🏡 Plataforma de Alquiler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+  <h1>🏡 Plataforma de Alquiler Vacacional</h1>
+
+  <div>
+    <button id="themeBtn">🌙</button>
+    <button id="reportBtn">📊 Reportes</button>
+    <button id="exportBtn">📁 Exportar</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="controls">
+    <input id="name" placeholder="Nombre">
+    <input id="location" placeholder="Ubicación">
+    <input id="price" type="number" placeholder="Precio">
+
+    <select id="category">
+      <option value="villa">Villa</option>
+      <option value="apartamento">Apartamento</option>
+      <option value="casa">Casa</option>
+      <option value="finca">Finca</option>
+    </select>
+
+    <button id="addBtn">Agregar</button>
+  </div>
+
+  <input id="search" placeholder="Buscar propiedades...">
+
+  <ul id="list"></ul>
+
+</div>
+
+<script type="module" src="./starter/main.js"></script>
+
+</body>
+</html>

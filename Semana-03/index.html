@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🏡 Alquiler Vacacional PRO</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <h1>🏡 Plataforma de Alquiler Vacacional</h1>
+  <button id="toggleDark">🌙</button>
+</header>
+
+<div class="container">
+
+  <!-- FORM -->
+  <form id="form">
+    <input id="name" placeholder="Nombre" required>
+    <input id="location" placeholder="Ubicación" required>
+    <input id="price" type="number" placeholder="Precio" required>
+
+    <select id="type">
+      <option>Villa</option>
+      <option>Apartamento</option>
+      <option>Casa</option>
+    </select>
+
+    <select id="status">
+      <option>Activo</option>
+      <option>Inactivo</option>
+    </select>
+
+    <button type="submit">Agregar</button>
+  </form>
+
+  <!-- FILTROS -->
+  <div class="filters">
+    <input id="search" placeholder="Buscar...">
+    <select id="filterType">
+      <option value="">Todos</option>
+      <option>Villa</option>
+      <option>Apartamento</option>
+      <option>Casa</option>
+    </select>
+
+    <select id="filterStatus">
+      <option value="">Todos</option>
+      <option>Activo</option>
+      <option>Inactivo</option>
+    </select>
+  </div>
+
+  <!-- LISTA -->
+  <ul id="list"></ul>
+
+  <p id="stats"></p>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

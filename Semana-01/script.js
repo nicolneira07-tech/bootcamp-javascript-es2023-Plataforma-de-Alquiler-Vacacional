@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // ===============================
 // 🏡 DATOS DEL DOMINIO
 // ===============================
@@ -101,12 +102,34 @@ const showToast = (message) => {
   const toast = document.createElement('div');
   toast.className = 'toast';
   toast.textContent = message;
+=======
+// 🌙 Modo oscuro
+function toggleDarkMode() {
+  const body = document.body;
+  const btn = document.querySelector('.toggle-btn');
+
+  body.classList.toggle('dark');
+
+  if (body.classList.contains('dark')) {
+    btn.textContent = "☀️";
+  } else {
+    btn.textContent = "🌙";
+  }
+}
+
+// 🔔 Toast (notificación)
+function mostrarToast(mensaje) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = mensaje;
+>>>>>>> 71de471 (Subiendo semana 01-04)
 
   document.body.appendChild(toast);
 
   setTimeout(() => {
     toast.remove();
   }, 2000);
+<<<<<<< HEAD
 };
 
 // ===============================
@@ -158,3 +181,6 @@ Rating: ${stats.rating}
 // ===============================
 
 renderProperty();
+=======
+}
+>>>>>>> 71de471 (Subiendo semana 01-04)
