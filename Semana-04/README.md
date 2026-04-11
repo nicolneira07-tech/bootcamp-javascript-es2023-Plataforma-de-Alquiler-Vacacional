@@ -179,4 +179,3 @@ Se logra una aplicación funcional, escalable y con una experiencia de usuario a
 
 ✅ Completado
 🚀 Nivel: 40/100
->>>>>>> 71de471 (Subiendo semana 01-04)
