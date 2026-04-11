@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # 🏡 Plataforma de Alquiler Vacacional - Semana 03
 
 ## 📋 Información
@@ -90,4 +87,3 @@ diagrama-clases.md
 ✔ Funcional  
 ✔ Cumple todos los requisitos  
 ✔ Listo para entregar  
->>>>>>> 71de471 (Subiendo semana 01-04)
