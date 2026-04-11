@@ -1,4 +1,4 @@
-# 🏡 Ficha de Plataforma de Alquiler Vacacional - Andrea Lopez Galeano
+# 🏡 Ficha de Plataforma de Alquiler Vacacional 
 
 ## 📋 Información
 - **Nombre**: Nicol Dayana Neira Lopez
